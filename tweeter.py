@@ -8,8 +8,9 @@ driver = webdriver.Chrome(
 driver.get("https://twitter.com/")
 sleep(3)
 driver.find_element_by_name(
-    "session[username_or_email]").send_keys("mariners2023")
-driver.find_element_by_name("session[password]").send_keys("Gemini253!")
+    "session[username_or_email]").send_keys(os.environ.get("TWITTER_USER_NAME"))
+driver.find_element_by_name("session[password]").send_keys(
+    os.environ.get("TWITTER_PASSWORD"))
 driver.find_element_by_name("session[password]").send_keys(Keys.RETURN)
 sleep(3)
 
